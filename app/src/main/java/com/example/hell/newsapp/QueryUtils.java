@@ -76,7 +76,7 @@ public final class QueryUtils {
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem retrieving the Guardian JSON results.", e);
+            Log.e(LOG_TAG, "Problem retrieving JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -131,7 +131,7 @@ public final class QueryUtils {
                 for (int j = 0; j < tagsArray.length(); j++) {
                     JSONObject tagsObject = tagsArray.getJSONObject(j);
                     String firstName = tagsObject.optString("firstName");
-                    String lastName = tagsObject.optString("lastName");
+                    String lastName = tagsObject.optString("surName");
                     String authorName;
                     if (TextUtils.isEmpty(firstName)) {
                         authorName = lastName;
